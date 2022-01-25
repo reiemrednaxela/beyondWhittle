@@ -239,7 +239,7 @@ gibbs_nuisance <- function(data,
         if (class(batch.rho)=="numeric") { # one rho param
           batch.rho.acceptanceRate <- acceptanceRate(batch.rho)
         } else { # several rho params
-          stopifnot(class(batch.rho)=="matrix")
+          stopifnot(class(batch.rho)=='matrix' || 'matrix' %in% class(batch.rho))
           batch.rho.acceptanceRate <- apply(batch.rho, 1, acceptanceRate) 
         }
         lsd.prop.rho <- lsd.prop.rho + ((batch.rho.acceptanceRate > adaption.targetAcceptanceRate)*2-1) * adaption.delta

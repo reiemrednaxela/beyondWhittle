@@ -112,7 +112,7 @@ gibbs_AR_nuisance_intern <- function(data, mcmc_params, prior_params, model_para
       batch <- (j-adaption.batchSize):(j-1)
       adaption.delta <- min(0.1, 1/(j^(1/3))) # c.f. Rosenthal
       batch.rho <- rho_trace[, batch, drop=F]
-      stopifnot(class(batch.rho)=="matrix")
+      stopifnot(class(batch.rho)=='matrix' || 'matrix' %in% class(batch.rho))
       batch.rho.acceptanceRate <- apply(batch.rho, 1, acceptanceRate) 
       lsd.prop.rho <- lsd.prop.rho + ((batch.rho.acceptanceRate > adaption.targetAcceptanceRate)*2-1) * adaption.delta
       var.prop.rho <- exp(2*lsd.prop.rho)
