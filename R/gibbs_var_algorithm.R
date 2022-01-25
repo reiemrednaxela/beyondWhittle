@@ -28,12 +28,12 @@ gibbs_VAR_nuisance_intern <- function(data,
   stopifnot(length(prior_params$beta_prior)==K*K*p)
   beta_prior <- prior_params$beta_prior
   stopifnot(!is.null(prior_params$V_prior))
-  stopifnot(class(prior_params$V_prior)=="matrix")
+  stopifnot(class(prior_params$V_prior)=="matrix" || 'matrix' %in% class(prior_params$V_prior))
   stopifnot(ncol(prior_params$V_prior)==K*K*p && nrow(prior_params$V_prior)==K*K*p)
   if (p>0) stopifnot(is_spd(prior_params$V_prior))
   V_prior <- prior_params$V_prior
   stopifnot(!is.null(prior_params$S_prior))
-  stopifnot(class(prior_params$S_prior)=="matrix")
+  stopifnot(class(prior_params$S_prior)=="matrix" || 'matrix' %in% class(prior_params$S_prior))
   stopifnot(ncol(prior_params$S_prior)==K && nrow(prior_params$S_prior)==K)
   stopifnot(is_spd(prior_params$S_prior))
   S_prior <- prior_params$S_prior

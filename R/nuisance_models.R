@@ -5,7 +5,7 @@ psd_dummy_model <- function() {
   excludeBoundary <- T
   get_noise <- function(data, theta, ...) {
     # mean centered version
-    if (class(data)=="matrix") {
+    if (class(data)=="matrix" || 'matrix' %in% class(data)) {
       apply(data, 2, center)
     } else {
       center(data)
