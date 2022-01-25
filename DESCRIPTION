@@ -22,3 +22,6 @@ Author: Alexander Meier [aut, cre],
   Renate Meyer [aut]
 Repository: CRAN
 Date/Publication: 2019-07-11 22:00:01 UTC
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
